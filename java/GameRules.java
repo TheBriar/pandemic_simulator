@@ -52,11 +52,7 @@ public class GameRules
 			}
 		}
 		if (map[y][x] == HEALTHY)
-		{
-			if (count > infection_threshold)
-				return (true);
-			return (false);
-		}
+			return (count > infection_threshold);
 		if (edges - count > recovery_threshold)
 			return (false);
 		return (true);

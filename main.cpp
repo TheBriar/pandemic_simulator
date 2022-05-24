@@ -3,6 +3,7 @@
 bool infected_adjacency(GameRules game, int y, int x)
 {
     int count = 0;
+    int edges = 8;
 
     for (int i : {-1, 0, 1})
          for (int j : {-1, 0, 1}) 
@@ -10,9 +11,12 @@ bool infected_adjacency(GameRules game, int y, int x)
             {
                 if (y + i >= 0 && y + i < game.grid_size && \
                     x + j >= 0 && x + j < game.grid_size)
+                {
                     if (game.map[y + i][x + j] == INFECTED)
                         count++;
-
+                }
+                else
+                    edges--;
             }
     if (game.map[y][x] == HEALTHY)
     {
@@ -20,7 +24,7 @@ bool infected_adjacency(GameRules game, int y, int x)
             return (true);
         return (false);
     }
-    if (8 - count > game.recovery_threshold)
+    if (edges - count > game.recovery_threshold)
         return (false);
     return (true);
 }

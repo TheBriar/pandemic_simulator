@@ -2,6 +2,7 @@
 #include <vector>
 #include <exception>
 #include <algorithm>
+#include <initializer_list>
 
 typedef struct coord_pair
 {

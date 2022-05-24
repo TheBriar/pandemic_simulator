@@ -19,11 +19,7 @@ bool infected_adjacency(GameRules game, int y, int x)
                     edges--;
             }
     if (game.map[y][x] == HEALTHY)
-    {
-        if (count > game.infection_threshold)
-            return (true);
-        return (false);
-    }
+        return (count > game.infection_threshold);
     if (edges - count > game.recovery_threshold)
         return (false);
     return (true);

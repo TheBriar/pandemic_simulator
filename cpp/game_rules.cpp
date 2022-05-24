@@ -61,7 +61,13 @@ GameRules::GameRules(int ac, char **av)
 
 GameRules::~GameRules(void)
 {
- 
+    //for (int i = 0; i < grid_size; i++)
+    //{
+    //    delete [] this->map[i];
+    //    delete [] this->next_round_map[i];
+    //}  
+    //delete [] this->map;
+    //delete [] this->next_round_map;
 }
 
 std::ostream& operator<<(std::ostream &os, const GameRules &rules)

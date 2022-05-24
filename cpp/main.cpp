@@ -46,8 +46,11 @@ void populate_next(GameRules &game)
             game.map[i][j] = game.next_round_map[i][j];
 }
 
-void simulate(GameRules game)
+void simulate(int ac, char **av)
 {
+    GameRules game(ac, av);
+    std::cout << "//-------start-------//" << std::endl;
+    std::cout << game;
     for (int i = 0; i < game.rounds; i++)
     {
         populate_next(game);
@@ -55,7 +58,6 @@ void simulate(GameRules game)
         // std::cout << game;
     }
     std::cout << "//-------end-------//" << std::endl;
-
     std::cout << game;
 }
 
@@ -70,10 +72,7 @@ int main(int ac, char **av)
 
     try 
     {
-        GameRules game(ac, av);
-        std::cout << "//-------start-------//" << std::endl;
-        std::cout << game;
-        simulate(game);
+        simulate(ac, av);
     }
     catch (const std::invalid_argument &e)
     {
